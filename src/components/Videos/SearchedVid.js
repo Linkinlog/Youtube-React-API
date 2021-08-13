@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-export const SearchedVid = () => {
-    return (
-        <div>
-            
-        </div>
-    )
+export class SearchedVid extends Component {
+    
+    render() {
+        return (
+            <div>
+                
+            </div>
+        )
+    }
 }
+
+export default SearchedVid
+
