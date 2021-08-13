@@ -36,3 +36,8 @@
     transform: rotate(360deg);
   }
 }
+
+#nav {
+  background-color: 	#FF0000;
+  --bs-bg-opacity: 1;
+}
