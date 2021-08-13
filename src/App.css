@@ -41,3 +41,9 @@
   background-color: 	#FF0000;
   --bs-bg-opacity: 1;
 }
+
+#singleVid {
+  width: 100vw;
+  height: 100vh;
+  /* margin-right: 10px; */
+}

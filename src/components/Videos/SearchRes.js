@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { SingleVid } from './SingleVid'
+import { SingleVid } from './MultiVid'
 
 export const SearchRes = ({searchUrl}) => {
     return (

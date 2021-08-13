@@ -1,22 +1,27 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
-
-export const SingleVid = ({data, liftState}) => {
-    return (
-        <div className="container">
-            <div className="row gap-5">
-                {data.map(item => (
-                    <div key={item.etag} className="card" style={{width: "18rem"}}>
-                    <img src={item.snippet.thumbnails.high.url} className="card-img-top" alt="..."/>
-                    <div className="card-body">
-                        <h5 className="card-title">{item.snippet.title}</h5>
-                        <p className="card-text">{item.snippet.description.substr(0,100)}...</p>
-                        <a href={`https://www.youtube.com/watch?v=${item.id}`} className="btn btn-primary">Watch on Youtube</a>
-                        <Link to={`/video/${item.id}`} onClick={() => liftState(item)} className="btn btn-primary">Watch here</Link>
-                    </div>
-                    </div>
-                ))}
+import React, { Component, Fragment } from 'react'
+import { MultiVid } from './MultiVid'
+import { RelatedVids } from './RelatedVids'
+import Spinner from '../Spinner'
+export class SingleVid extends Component {
+    render() {
+        const {vid, relatedData, getVid, loading} = this.props
+        if (loading || relatedData < 1){
+            return(
+                <Spinner />
+            )
+        }
+        return (
+            <Fragment>
+                <div className="col-md-3 offset-1">
+                    <iframe title="vid" src={`https://youtube.com/embed/${vid[0].id}`} id="" frameBorder="0"></iframe>
                 </div>
-            </div>
-    )
+                <div className="col">
+                    <MultiVid data={relatedData}/>
+                </div>
+            </Fragment>
+        )
+    }
 }
+
+export default SingleVid
+

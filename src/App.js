@@ -3,8 +3,8 @@ import React, {Component} from 'react';
 import Navbar from './components/Navbar';
 import Videos from './components/Videos/Videos';
 import { Alert } from './components/Alert';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { SearchedVid } from './components/Videos/SearchedVid';
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
+// import { SearchedVid } from './components/Videos/SearchedVid';
 
 class App extends Component {
   state = {
@@ -22,12 +22,7 @@ class App extends Component {
       <Navbar />
       <Alert alert={this.state.alert}/>
       <Switch>
-          <Route exact path='/'>
-            <Videos setAlert={this.setAlert}/>
-          </Route>
-          <Route exact path='/video/:vid'>
-            <SearchedVid />
-          </Route>
+        <Videos setAlert={this.setAlert}/>
       </Switch>
     </div>
     </Router>
